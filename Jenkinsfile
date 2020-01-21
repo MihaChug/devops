@@ -1,5 +1,5 @@
 def url = 'google.com'
-def response = 'Unknown'
+def String response = 'Unknown'
 
 pipeline {
     agent any
@@ -16,7 +16,7 @@ pipeline {
         }
         stage ('Check URL'){
             steps{
-                powershell(returnStdout : true, script: ".\\ps.ps1 -url ${url}") -outvariable response
+                reponse = powershell(returnStdout : true, script: ".\\ps.ps1 -url ${url}")
             }
         }
     }
