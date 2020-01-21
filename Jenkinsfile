@@ -5,12 +5,14 @@ pipeline {
     agent any
     stages {
         stage('Clone repository') {
-            checkout([
-                $class: 'GitSCM',
-                branches: [[name: '*/master']],
-                extensions: scm.extensions + [[$class: 'CleanCheckout']],
-                userRemoteConfigs: scm.userRemoteConfigs
-            ])
+            steps{
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/master']],
+                    extensions: scm.extensions + [[$class: 'CleanCheckout']],
+                    userRemoteConfigs: scm.userRemoteConfigs
+                ])
+            }
         }
         stage ('Check URL'){
             steps{
