@@ -1,4 +1,5 @@
 def url = 'google.com'
+def response = 'Unknown'
 
 pipeline {
     agent any
@@ -15,7 +16,7 @@ pipeline {
         }
         stage ('Check URL'){
             steps{
-               def response = powershell(returnStdout : true, script: ". '.\\ps.ps1'; -url $env:url")
+               powershell(returnStdout : true, script: ". '.\\ps.ps1'; -url $env:url")
             }
         }
     }
