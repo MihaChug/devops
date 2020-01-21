@@ -31,7 +31,7 @@ pipeline {
     }
     post {
         always {
-            emailext body: "${DEFAULT_CONTENT}\n" + "Site status: ${msg}",
+            emailext body: "Site status: ${msg}",
             recipientProviders: [[$class: 'RequesterRecipientProvider']], 
             subject: 'Jenkins Build Results'
         }
