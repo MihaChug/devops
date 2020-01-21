@@ -6,10 +6,10 @@ function Response{
     $HTTP_Response = $HTTP_Request.GetResponse()
     $HTTP_Status = [int]$HTTP_Response.StatusCode
     If ($HTTP_Status -eq 200) {
-        return "Reachable"
+        Write-Output "Reachable"
     }
     Else {
-        return "Unreachable"
+        Write-Output "Unreachable"
     }
     $HTTP_Response.Close()
 }
@@ -21,6 +21,6 @@ If ($url -match '(http[s]?|[s]?ftp[s]?)(:\/\/)([^\s,]+)') {
             Response ('http://' + $url)
         }
         Else{
-            return "URL is invalid"
+            Write-Output "URL is invalid"
     }
 }
