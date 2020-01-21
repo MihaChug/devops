@@ -15,15 +15,8 @@ pipeline {
         stage ('Check URL'){
             steps{
                 $env:response = PowerShell(". '.\\ps.ps1'; -url $env:url")
+                echo $env:response
             }
-        }
-    }
-    post {
-        always {
-            emailext body: $env:response,
-            recipientProviders: [[$class: 'DevelopersRecipientProvider'], 
-            [$class: 'RequesterRecipientProvider']], 
-            subject: 'Results'
         }
     }
 }
