@@ -34,12 +34,6 @@ pipeline {
             emailext body: "Site status: ${msg}",
             recipientProviders: [[$class: 'RequesterRecipientProvider']], 
             subject: 'Jenkins Build Results'
-            emailext (
-                subject: "Jenkins build results",
-                body: "Site status: ${msg}",
-                to: "mikhail.chugunov@travelline.ru",
-                from: "mihachug@gmail.com"
-            )
         }
     }
 }
