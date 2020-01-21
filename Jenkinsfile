@@ -16,7 +16,7 @@ pipeline {
         }
         stage ('Check URL'){
             steps{
-                $response = powershell(returnStdout : true, script: ".\\ps.ps1 -url ${url}")
+                powershell(returnStdout : true, script: ".\\ps.ps1 -url ${url}") -outvariable response
             }
         }
     }
