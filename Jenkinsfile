@@ -14,9 +14,9 @@ pipeline {
         }
         stage ('Check URL'){
             steps{
-                $env:response = PowerShell(". '.\\ps.ps1'; -url $env:url")
-                echo $env:response
+               PowerShell(". '.\\ps.ps1'; -url $env:url")
             }
         }
     }
+
 }
