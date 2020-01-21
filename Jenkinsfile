@@ -1,5 +1,4 @@
 def url = 'google.com'
-def response = 'Unknown'
 
 pipeline {
     agent any
