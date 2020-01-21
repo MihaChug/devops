@@ -21,6 +21,10 @@ pipeline {
                 script{
                     msg = powershell(returnStdout : true, script: ".\\ps.ps1 -url ${url}")
                 }
+            }
+        }
+        stage ('Print Results'){
+            steps{
                 echo "${msg}"
             }
         }
