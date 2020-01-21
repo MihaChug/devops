@@ -21,7 +21,7 @@ pipeline {
                 script{
                     msg = powershell(returnStdout : true, script: ".\\ps.ps1 -url ${url}")
                 }
-                echo ${msg}
+                echo "${msg}"
             }
         }
     }
