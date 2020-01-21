@@ -29,5 +29,11 @@ pipeline {
             }
         }
     }
-
+    post {
+        always {
+            emailext body: "${msg}",
+            recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], 
+            subject: 'Results'
+        }
+    }
 }
