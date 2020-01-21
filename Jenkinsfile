@@ -1,8 +1,10 @@
-def url = 'google.com'
-def msg = 'Unknown'
-
 pipeline {
     agent any
+    
+    environment {
+        url = 'google.com'
+        msg = 'BuildError'
+    }
     stages {
         stage('Clone repository') {
             steps{
@@ -16,8 +18,10 @@ pipeline {
         }
         stage ('Check URL'){
             steps{
-                $msg = echo powershell(returnStdout : true, script: ".\\ps.ps1 -url ${url}")
-                echo $msg
+                script{
+                    msg = powershell(returnStdout : true, script: ".\\ps.ps1 -url ${url}")
+                }
+                echo ${msg}
             }
         }
     }
