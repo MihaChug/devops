@@ -6,10 +6,10 @@ function Response{
     $HTTP_Response = $HTTP_Request.GetResponse()
     $HTTP_Status = [int]$HTTP_Response.StatusCode
     If ($HTTP_Status -eq 200) {
-        Write-Output "Reachable"
+        Write-Output "Success"
     }
     Else {
-        Write-Output "Unreachable"
+        Write-Output "Failure"
     }
     $HTTP_Response.Close()
 }
