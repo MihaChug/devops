@@ -27,6 +27,7 @@
         stage ('Check URL'){
             steps{
                 script{
+                    powershell('git config --global --add http.sslVersion tlsv1.2')
                     msg = powershell(returnStdout : true, script: ".\\ps.ps1 -url ${url}")
                 }
             }
