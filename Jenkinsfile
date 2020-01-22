@@ -1,6 +1,6 @@
 pipeline {
     agent{
-        label '${BuildAgent}'
+        label BuildAgent
     }
 
     environment {
