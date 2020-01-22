@@ -1,10 +1,17 @@
 pipeline {
-    agent{
-        label 'Windows'
+    if('${BuildAgentNameType}' == 'name'){
+        agent{
+            name '${BuildAgentName}'
+        }
     }
-    
+    else {
+        if('${BuildAgentNameType}' == 'label'){
+            agent{
+                label '${BuildAgentName}'
+            }
+        }
+    }
     environment {
-        url = 'google.com'
         msg = 'BuildError'
     }
     stages {
