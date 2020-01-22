@@ -1,8 +1,4 @@
 pipeline {
-    options([
-        [$class: 'GithubProjectProperty', displayName: '', projectUrlStr: 'https://github.com/MihaChug/devops/'], 
-        parameters([string(defaultValue: 'google.com', description: 'URL for check', name: 'url', trim: false), 
-                    string(defaultValue: 'Windows', description: 'Build agent label', name: 'BuildAgent', trim: false)])])
     agent{
         label BuildAgent
     }
