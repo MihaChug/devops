@@ -1,6 +1,6 @@
 pipeline {
     agent{
-        BuildAgentNameType BuildAgentName
+        '${BuildAgentNameType}' '${BuildAgentName}'
     }
 
     environment {
