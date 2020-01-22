@@ -1,7 +1,7 @@
   pipeline {
     parameters {
-        string(name: 'url', defaultValue: 'google.com', description: 'URL for check')
-
+        string(name: 'url', defaultValue: 'google.com', description: 'URL for check'),
+        string(name: 'BuildAgent', defaultValue: 'Windows', description: 'Build agent label')
     }
     agent{
 
