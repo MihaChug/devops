@@ -1,22 +1,38 @@
-pipeline {
+  pipeline {
+    parameters {
+        string(name: 'url', defaultValue: 'google.com', description: 'URL for check')
+
+    }
     agent{
+
         label BuildAgent
-    }
 
+    }
     environment {
-        msg = 'BuildError'
-    }
 
+        msg = 'BuildError'
+
+    }
     stages {
+
         stage('Clone repository') {
+
             steps{
+
                 checkout([
+
                     $class: 'GitSCM',
+
                     branches: [[name: '*/master']],
+
                     extensions: scm.extensions + [[$class: 'CleanCheckout']],
+
                     userRemoteConfigs: scm.userRemoteConfigs
+
                 ])
+
             }
+
         }
         stage ('Check URL'){
             steps{
@@ -31,7 +47,6 @@ pipeline {
             }
         }
     }
-
     post {
         always {
             emailext body: "URL check status: ${msg}",
@@ -39,5 +54,4 @@ pipeline {
             subject: 'Jenkins Build Results'
         }
     }
-
 }
