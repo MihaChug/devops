@@ -19,15 +19,7 @@
 
             steps{
 
-                checkout([
-
-                    $class: 'GitSCM',
-
-                    branches: [[name: '*/master']],
-
-                    extensions: scm.extensions + [[$class: 'CleanCheckout']],
-
-                    userRemoteConfigs: scm.userRemoteConfigs
+                git branch: 'master', url: 'https://github.com/MihaChug/devops/'
 
                 ])
 
