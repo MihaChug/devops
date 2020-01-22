@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent{
+        label 'Windows'
+    }
     
     environment {
         url = 'google.com'
