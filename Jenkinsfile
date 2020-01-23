@@ -16,12 +16,14 @@
     stages {
 
         stage('Clone repository') {
-
             steps{
-                git branch: 'master', credentialsId: 'GitTestCredentials', url: 'git@github.com:MihaChug/devops.git' 
-
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/master']],
+                    extensions: scm.extensions + [[$class: 'CleanCheckout']],
+                    userRemoteConfigs: scm.userRemoteConfigs
+                ])
             }
-
         }
         stage ('Check URL'){
             steps{
