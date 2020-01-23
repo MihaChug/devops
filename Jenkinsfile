@@ -21,7 +21,7 @@
                     $class: 'GitSCM',
                     branches: [[name: '*/master']],
                     extensions: scm.extensions + [[$class: 'CleanCheckout']],
-                    userRemoteConfigs: scm.userRemoteConfigs
+                    userRemoteConfigs: [[credentialsId: 'GitTestCredentials', url: 'git@github.com:MihaChug/devops.git']]
                 ])
             }
         }
