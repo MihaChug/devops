@@ -18,8 +18,7 @@
         stage('Clone repository') {
 
             steps{
-                powershell('git config --global --add http.sslVersion tlsv1.2')
-                git branch: 'master', url: 'https://github.com/MihaChug/devops/'
+                git branch: 'master', credentialsId: 'GitTestCredentials', url: 'git@github.com:MihaChug/devops.git' 
 
             }
 
