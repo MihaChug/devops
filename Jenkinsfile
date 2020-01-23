@@ -19,7 +19,7 @@
 
             steps{
                 powershell('git config --global --add http.sslVersion tlsv1.2')
-                git branch: 'master', url: 'ssh://git@github.com:MihaChug/devops.git'
+                git branch: 'master', url: 'https://github.com/MihaChug/devops/'
 
             }
 
